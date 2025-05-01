@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import Heading from './components/heading';
+import Tagline from './components/Tagline';
+import Instructions from './components/Instructions';
+import ExamSelect from './components/ExamSelect';
+import StartButton from './components/StartButton';
+import ExamStarted from './components/ExamStarted';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [selectedExam, setSelectedExam] = useState('');
+  const [examStarted, setExamStarted] = useState(false);
+
+  const handleExamSelect = (e) => {
+    setSelectedExam(e.target.value);
+  };
+
+  const startExam = () => {
+    if (selectedExam) {
+      setExamStarted(true);
+    } else {
+      alert('Please select an exam before starting!');
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="container">
+      <Heading />
+      <Tagline />
+      <Instructions />
 
-export default App
+      {!examStarted ? (
+        <>
+          <ExamSelect selectedExam={selectedExam} onExamSelect={handleExamSelect} />
+          <StartButton onStart={startExam} />
+        </>
+      ) : (
+        <ExamStarted selectedExam={selectedExam} />
+      )}
+    </div>
+  );
+};
+
+export default App;
