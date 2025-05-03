@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import FileUpload from './FileUpload';
 
 const ExamSelect = ({ selectedExam, onExamSelect }) => {
+  const [showUpload, setShowUpload] = useState(false);
+
+  const handleUploadClick = () => {
+    setShowUpload(!showUpload); 
+  };
+
   return (
     <div className="exam-select">
-      <label htmlFor="exam">Select Exam:</label>
-      <select id="exam" value={selectedExam} onChange={onExamSelect}>
-        <option value="">-- Select Exam --</option>
-        <option value="math">Mathematics Test</option>
-        <option value="science">Science Test</option>
-        <option value="english">English Test</option>
-      </select>
+      <button className="exambuttons" onClick={handleUploadClick}>
+        Upload document for verification
+      </button>
+
+      {showUpload && <FileUpload />} 
     </div>
   );
 };

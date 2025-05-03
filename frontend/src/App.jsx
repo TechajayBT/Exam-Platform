@@ -1,41 +1,49 @@
 import React, { useState } from 'react';
-import Heading from './components/heading';
-import Tagline from './components/Tagline';
-import Instructions from './components/Instructions';
-import ExamSelect from './components/ExamSelect';
-import StartButton from './components/StartButton';
-import ExamStarted from './components/ExamStarted';
 import './App.css';
+import Heading from './components/Heading';
+import Instructions from './components/Instructions';
+import StartButton from './components/StartButton';
+import Tagline from './components/Tagline';
 
 const App = () => {
   const [selectedExam, setSelectedExam] = useState('');
   const [examStarted, setExamStarted] = useState(false);
+  const [userRole, setUserRole] = useState(''); // Track whether the user is Admin or Student
 
-  const handleExamSelect = (e) => {
-    setSelectedExam(e.target.value);
+  const handleRoleSelect = (role) => {
+    setUserRole(role);
   };
 
   const startExam = () => {
-    if (selectedExam) {
+    if (selectedExam && userRole) {
       setExamStarted(true);
     } else {
-      alert('Please select an exam before starting!');
+      alert('Please select your role and exam before starting!');
     }
   };
 
   return (
     <div className="container">
       <Heading />
-      <Tagline />
-      <Instructions />
-
-      {!examStarted ? (
-        <>
-          <ExamSelect selectedExam={selectedExam} onExamSelect={handleExamSelect} />
+      {!userRole ? (
+        // Login screen with Admin and Student selection
+        <div className="role-selection">
+          <h2>Select your role</h2>
+          <button className="role-btn" onClick={() => handleRoleSelect('Admin')}>Login as Admin</button>
+          <button className="role-btn" onClick={() => handleRoleSelect('Student')}>Login as Student</button>
+        </div>
+      ) : !examStarted ? (
+        // Exam Start screen after role selection
+        <div>
+          <h3>Welcome {userRole}</h3>
           <StartButton onStart={startExam} />
-        </>
+        </div>
       ) : (
-        <ExamStarted selectedExam={selectedExam} />
+        // Exam or instructions after starting
+        <div>
+          <Tagline />
+          <Instructions />
+        </div>
       )}
     </div>
   );

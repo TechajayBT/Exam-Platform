@@ -1,0 +1,385 @@
+/* Admin Component Styles */
+.admin-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+  }
+  
+  /* Sidebar Styles */
+  .admin-sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 1.5rem 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-profile {
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .admin-avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #3498db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+  }
+  
+  .admin-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .admin-nav li {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-left: 3px solid transparent;
+  }
+  
+  .admin-nav li:hover {
+    background-color: #34495e;
+  }
+  
+  .admin-nav li.active {
+    background-color: #34495e;
+    border-left-color: #3498db;
+  }
+  
+  /* Content Area Styles */
+  .admin-content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+  
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .admin-header h2 {
+    margin: 0;
+    color: #2c3e50;
+  }
+  
+  .admin-header-actions button {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .admin-help-btn {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+  
+  .admin-logout-btn {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  /* Dashboard Styles */
+  .stats-container {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    flex: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stat-card h3 {
+    margin-top: 0;
+    color: #7f8c8d;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0.5rem 0 0;
+  }
+  
+  .recent-activity {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .activity-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .activity-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #ecf0f1;
+  }
+  
+  .activity-list li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Exams Management Styles */
+  .exams-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .add-exam-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .add-exam-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .add-exam-form input {
+    flex: 1;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .add-exam-form button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .exams-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .exams-table th, .exams-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+  }
+  
+  .exams-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #34495e;
+  }
+  
+  .exams-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .status-badge.active {
+    background-color: #e1f7ea;
+    color: #27ae60;
+  }
+  
+  .status-badge.scheduled {
+    background-color: #e1f2fa;
+    color: #3498db;
+  }
+  
+  .status-badge.completed {
+    background-color: #f1f2f6;
+    color: #7f8c8d;
+  }
+  
+  .action-btn {
+    margin-right: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .action-btn.edit {
+    background-color: #f39c12;
+    color: white;
+  }
+  
+  .action-btn.view {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  /* Settings Styles */
+  .settings-content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .settings-form {
+    max-width: 600px;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .checkbox-group {
+    margin-bottom: 0.5rem;
+  }
+  
+  .save-settings-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .stats-container {
+      flex-wrap: wrap;
+    }
+    
+    .stat-card {
+      flex-basis: calc(50% - 0.75rem);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .admin-container {
+      flex-direction: column;
+    }
+    
+    .admin-sidebar {
+      width: 100%;
+      padding: 1rem 0;
+    }
+    
+    .admin-profile {
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .admin-avatar {
+      margin: 0 1rem 0 0;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
+    
+    .admin-nav ul {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 0.5rem;
+    }
+    
+    .admin-nav li {
+      border-left: none;
+      border-bottom: 3px solid transparent;
+    }
+    
+    .admin-nav li.active {
+      border-left-color: transparent;
+      border-bottom-color: #3498db;
+    }
+    
+    .stat-card {
+      flex-basis: 100%;
+    }
+    
+    .exams-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .add-exam-form {
+      flex-direction: column;
+    }
+    
+    .exams-table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .admin-header-actions {
+      display: flex;
+      width: 100%;
+    }
+    
+    .admin-header-actions button {
+      flex: 1;
+      margin: 0 0.5rem;
+    }
+    
+    .admin-header-actions button:first-child {
+      margin-left: 0;
+    }
+    
+    .admin-header-actions button:last-child {
+      margin-right: 0;
+    }
+  }
